@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<style>
+body {
+	font-family:verdana;
+	background-color:#ccc;
+}
+.debug {
+	border:0px solid red;
+}
+#TodoListContainer {
+	width:600px;
+	margin-left:auto;
+	margin-right:auto;
+	background-color:#fff;
+	margin-top:100px;
+	box-shadow: 0px 0px 100px 100px white;
+	border-radius: 10px;
+	padding:10px 10px 10px 10px;
+}
+#TodoListHeader {
+	font-size:50px;
+	font-weight:bold;
+	margin-bottom:20px;
+}
+#TodoListBody {
+}
+.TodoTask {
+	font-size:20px;
+	border-top:1px solid #ccc;
+}
+.TodoTask:hover {
+	background-color: #eee;
+}
+.TodoTaskComplete {
+	text-decoration:line-through;
+}
+#TodoListNew {
+	margin-bottom:20px;
+}
+</style>
+<script src="../Todo.js"></script>
+<body>
+	<div id="TodoListContainer" class="debug">
+		<div id="TodoListHeader" class="debug"><center>TODO LIST</center></div>
+		<center><input id="TodoListNew" type="button" value="New Task" onclick="javascript:Todo.promptToAddTask();"/></center>
+		<div id="TodoListBody" class="debug"></div>
+	</div>
+</body>
+<script>
+Todo.setTaskListContainer(document.getElementById("TodoListBody"));
+Todo.addTask(new Todo.Task("Add some tasks!"));
+Todo.updateTaskListView();
+</script>
+</html>
